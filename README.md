@@ -32,6 +32,11 @@
 
 **Ключевой класс:** `System.Diagnostics.Process`
 
+** Дополнительные материалы:**
+https://github.com/VladimirRepp/CS---ChildeProcesses
+https://github.com/VladimirRepp/CS---CreateProcess
+https://github.com/VladimirRepp/CS---SimpleProcess
+
 ### [Модуль 3. Многопоточность и асинхронность](./Module%203%20-%20Threading%20and%20Asynchrony)
 
 **Поток (Thread)** — наименьшая единица выполнения внутри процесса.
@@ -45,6 +50,11 @@
 - **I/O-bound vs CPU-bound операции:**
   - **I/O-bound** (сеть, диск, БД) — идеально для `async/await`
   - **CPU-bound** (вычисления) — лучше использовать `Task.Run`
+ 
+** Дополнительные материалы:**
+https://github.com/VladimirRepp/CS---Multithreading
+https://github.com/VladimirRepp/CS---AsynkTaskParallel
+https://github.com/VladimirRepp/CS---PoolThreads
 
 ### [Модуль 4. Синхронизация](./Module%204%20-%20Synchronization)
 
@@ -65,6 +75,9 @@
 - Используйте неизменяемые структуры
 - Никогда не блокируйте поток в `async` методе (кроме `await`)
 
+** Дополнительные материалы:**
+https://github.com/VladimirRepp/CS---SynchronizationMethodsUsingThread
+
 ### [Модуль 5. Параллельное программирование](./Module%205%20-%20Parallel%20Programming)
 
 **Параллельное программирование** — использование нескольких ядер CPU для одновременного выполнения задач.
@@ -83,6 +96,9 @@
 - Разделение данных между потоками
 - Агрегация результатов
 
+** Дополнительные материалы:**
+https://github.com/VladimirRepp/CS---AsynkTaskParallel
+
 ### [Модуль 6. Динамически подключаемые библиотеки](./Module%206%20-%20Dynamic%20Libraries)
 
 **Динамическая загрузка** — загрузка сборок во время выполнения.
@@ -97,6 +113,11 @@
 - Плагинная архитектура
 - Загрузка реализаций по конфигурации
 - "Горячая" замена модулей
+
+** Дополнительные материалы:**
+https://github.com/VladimirRepp/CS---AppDomain
+https://github.com/VladimirRepp/CS---RunTwoAppUsingAppDoman
+https://github.com/VladimirRepp/CS---AssemblyAndModule
 
 ## Быстрый старт
 
