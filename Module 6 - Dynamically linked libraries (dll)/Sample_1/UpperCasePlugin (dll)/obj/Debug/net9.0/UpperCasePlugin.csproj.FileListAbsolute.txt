@@ -1,0 +1,15 @@
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\UpperCasePlugin (dll)\obj\Debug\net9.0\UpperCasePlugin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\UpperCasePlugin (dll)\obj\Debug\net9.0\UpperCasePlugin.AssemblyInfoInputs.cache
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\UpperCasePlugin (dll)\obj\Debug\net9.0\UpperCasePlugin.AssemblyInfo.cs
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\UpperCasePlugin (dll)\obj\Debug\net9.0\UpperCasePlugin.csproj.CoreCompileInputs.cache
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\UpperCasePlugin (dll)\bin\Debug\net9.0\UpperCasePlugin.deps.json
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\UpperCasePlugin (dll)\bin\Debug\net9.0\UpperCasePlugin.dll
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\UpperCasePlugin (dll)\bin\Debug\net9.0\UpperCasePlugin.pdb
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\UpperCasePlugin (dll)\bin\Debug\net9.0\PluginCommon.dll
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\UpperCasePlugin (dll)\bin\Debug\net9.0\PluginCommon.pdb
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\UpperCasePlugin (dll)\obj\Debug\net9.0\UpperCasePlugin.csproj.AssemblyReference.cache
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\UpperCasePlugin (dll)\obj\Debug\net9.0\UpperCas.3826A460.Up2Date
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\UpperCasePlugin (dll)\obj\Debug\net9.0\UpperCasePlugin.dll
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\UpperCasePlugin (dll)\obj\Debug\net9.0\refint\UpperCasePlugin.dll
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\UpperCasePlugin (dll)\obj\Debug\net9.0\UpperCasePlugin.pdb
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\UpperCasePlugin (dll)\obj\Debug\net9.0\ref\UpperCasePlugin.dll

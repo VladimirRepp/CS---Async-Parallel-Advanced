@@ -1,0 +1,11 @@
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\PluginCommon (dll)\bin\Debug\net9.0\PluginCommon.deps.json
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\PluginCommon (dll)\bin\Debug\net9.0\PluginCommon.dll
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\PluginCommon (dll)\bin\Debug\net9.0\PluginCommon.pdb
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\PluginCommon (dll)\obj\Debug\net9.0\PluginCommon.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\PluginCommon (dll)\obj\Debug\net9.0\PluginCommon.AssemblyInfoInputs.cache
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\PluginCommon (dll)\obj\Debug\net9.0\PluginCommon.AssemblyInfo.cs
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\PluginCommon (dll)\obj\Debug\net9.0\PluginCommon.csproj.CoreCompileInputs.cache
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\PluginCommon (dll)\obj\Debug\net9.0\PluginCommon.dll
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\PluginCommon (dll)\obj\Debug\net9.0\refint\PluginCommon.dll
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\PluginCommon (dll)\obj\Debug\net9.0\PluginCommon.pdb
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\PluginCommon (dll)\obj\Debug\net9.0\ref\PluginCommon.dll

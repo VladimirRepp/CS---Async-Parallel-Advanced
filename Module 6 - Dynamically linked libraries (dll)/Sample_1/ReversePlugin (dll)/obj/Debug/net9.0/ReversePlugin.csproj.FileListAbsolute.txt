@@ -1,0 +1,15 @@
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\ReversePlugin (dll)\bin\Debug\net9.0\ReversePlugin.deps.json
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\ReversePlugin (dll)\bin\Debug\net9.0\ReversePlugin.dll
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\ReversePlugin (dll)\bin\Debug\net9.0\ReversePlugin.pdb
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\ReversePlugin (dll)\bin\Debug\net9.0\PluginCommon.dll
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\ReversePlugin (dll)\bin\Debug\net9.0\PluginCommon.pdb
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\ReversePlugin (dll)\obj\Debug\net9.0\ReversePlugin.csproj.AssemblyReference.cache
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\ReversePlugin (dll)\obj\Debug\net9.0\ReversePlugin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\ReversePlugin (dll)\obj\Debug\net9.0\ReversePlugin.AssemblyInfoInputs.cache
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\ReversePlugin (dll)\obj\Debug\net9.0\ReversePlugin.AssemblyInfo.cs
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\ReversePlugin (dll)\obj\Debug\net9.0\ReversePlugin.csproj.CoreCompileInputs.cache
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\ReversePlugin (dll)\obj\Debug\net9.0\ReverseP.070424E0.Up2Date
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\ReversePlugin (dll)\obj\Debug\net9.0\ReversePlugin.dll
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\ReversePlugin (dll)\obj\Debug\net9.0\refint\ReversePlugin.dll
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\ReversePlugin (dll)\obj\Debug\net9.0\ReversePlugin.pdb
+C:\Users\prep\Desktop\Системное программирование\Module 6 - Dynamically linked libraries (dll)\Sample_1\ReversePlugin (dll)\obj\Debug\net9.0\ref\ReversePlugin.dll
