@@ -101,7 +101,7 @@
 ## 🚀 Быстрый старт
 
 ### Предварительные требования
-- [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) или новее
+- [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) или новее
 - IDE: [Visual Studio 2022](https://visualstudio.microsoft.com/), [Rider](https://www.jetbrains.com/rider/) или [VS Code](https://code.visualstudio.com/)
 
 ### Запуск примеров
@@ -113,3 +113,7 @@ cd csharp-async-parallel
 # Запуск конкретного модуля
 cd Module3-ThreadingAsync
 dotnet run
+```
+
+### Заметки по выпуску
+- Module 6 не закончен 
