@@ -33,9 +33,9 @@
 **Ключевой класс:** `System.Diagnostics.Process`
 
 ** Дополнительные материалы:**
-https://github.com/VladimirRepp/CS---ChildeProcesses
-https://github.com/VladimirRepp/CS---CreateProcess
-https://github.com/VladimirRepp/CS---SimpleProcess
+- https://github.com/VladimirRepp/CS---ChildeProcesses
+- https://github.com/VladimirRepp/CS---CreateProcess
+- https://github.com/VladimirRepp/CS---SimpleProcess
 
 ### [Модуль 3. Многопоточность и асинхронность](./Module%203%20-%20Threading%20and%20Asynchrony)
 
