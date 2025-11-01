@@ -1,6 +1,6 @@
 # C#: Асинхронное и параллельное программирование
 
-[![.NET](https://img.shields.io/badge/.NET-6.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
+[![.NET](https://img.shields.io/badge/.NET-9.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
 [![C#](https://img.shields.io/badge/C%23-10.0-239120?logo=c-sharp)](https://docs.microsoft.com/ru-ru/dotnet/csharp/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -8,7 +8,7 @@
 
 ## 📚 Содержание курса
 
-### [Модуль 1. Использование унаследованного программного кода](./Module1-LegacyCode)
+### [Модуль 1. Использование унаследованного программного кода](./Module 1 - Legacy Code)
 
 **Унаследованный код (Legacy Code)** — код без тестов и документации с жесткими зависимостями и нарушением принципов SOLID.
 
