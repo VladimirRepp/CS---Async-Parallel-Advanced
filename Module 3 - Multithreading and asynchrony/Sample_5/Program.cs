@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Samples
 {
@@ -6,71 +9,66 @@ namespace Samples
     {
         static async Task Main(string[] args)
         {
-            long total_amount, elepsedMilliseconds;
-            
-            // ================================================= //
+            // ================= Вспомогательный пример ================= //
             (total_amount, elepsedMilliseconds) = CaclulateTest();
             (long, long) resultTest = CaclulateTest();
-            // ================================================= //
-
-            CaclulateSynchron(out total_amount, out elepsedMilliseconds);
-            Console.WriteLine($"CaclulateSynchron: total_amount = {total_amount} | elepsedMilliseconds = {elepsedMilliseconds}");
-
-            CaclulateWithThreads(out total_amount, out elepsedMilliseconds);
-            Console.WriteLine($"CaclulateWithThreads: total_amount = {total_amount} | elepsedMilliseconds = {elepsedMilliseconds}");
-
-            Task<(long, long)> taskCaclulate = CaclulateWithTasks();
-            await taskCaclulate;
-            (total_amount, elepsedMilliseconds) = taskCaclulate.Result;
-            Console.WriteLine($"CaclulateWithTasks: total_amount = {total_amount} | elepsedMilliseconds = {elepsedMilliseconds}");
+            // ================= Вспомогательный пример ================= //
             
+            Console.WriteLine("=== Сравнение CPU-bound и I/O-bound операций ===\n");
+
+            // Демонстрация информации о потоках
+            PrintAvialableThreadInfo();
+
+            // ========== CPU-BOUND операции ==========
+            Console.WriteLine("\n--- CPU-bound операции (вычисления) ---");
+            
+            // Синхронная версия
+            CaclulateSynchron(out long syncTotal, out long syncTime);
+            Console.WriteLine($"Синхронно: {syncTotal} за {syncTime}мс");
+
+            // Через Thread
+            CaclulateWithThreads(out long threadTotal, out long threadTime);
+            Console.WriteLine($"Через Thread: {threadTotal} за {threadTime}мс");
+
+            // Через Task (правильно для CPU-bound)
+            var taskResult = await CaclulateWithTasks();
+            Console.WriteLine($"Через Task (CPU-bound): {taskResult.total} за {taskResult.time}мс");
+
+            // ========== I/O-BOUND операции ==========
+            Console.WriteLine("\n--- I/O-bound операции (ожидание) ---");
+            
+            // Имитация I/O операций
+            var ioResult = await SimulateIoOperations();
+            Console.WriteLine($"I/O операции: {ioResult.total} файлов за {ioResult.time}мс");
+
+            // Сравнение производительности
+            Console.WriteLine($"\n--- Сравнение ---");
+            Console.WriteLine($"Ускорение Thread vs Синхронно: {(double)syncTime/threadTime:F2}x");
+            Console.WriteLine($"Ускорение Task vs Синхронно: {(double)syncTime/taskResult.time:F2}x");
+
             Console.ReadLine();
         }
 
-        static  void PrintAvialableThreadInfo()
+        static void PrintAvialableThreadInfo()
         {
-            int workerAvailableThreads, completionPortThreads;
-            int workerMaxThreads;
-            int workerMinThreads;
-            ThreadPool.GetAvailableThreads(out workerAvailableThreads, out completionPortThreads);
-            ThreadPool.GetMaxThreads(out workerMaxThreads, out completionPortThreads);
-            ThreadPool.GetMinThreads(out workerMinThreads, out completionPortThreads);
+            ThreadPool.GetAvailableThreads(out int workerAvailable, out int completionPortAvailable);
+            ThreadPool.GetMaxThreads(out int workerMax, out int completionPortMax);
+            ThreadPool.GetMinThreads(out int workerMin, out int completionPortMin);
 
-            Console.WriteLine($"workerAvailableThreads = {workerAvailableThreads}, \n" +
-                $"workerMaxThreads = {workerMaxThreads}, \n" +
-                $"workerMinThreads = {workerMinThreads}");
-
-            Console.ReadLine();
+            Console.WriteLine($"Доступно потоков: {workerAvailable}/{workerMax}");
+            Console.WriteLine($"Минимум потоков: {workerMin}");
         }
 
-        #region === Задача - Параллельные вычисления === 
-
-        // Задача:
-        // Параллельные вычисления:
-        // Создайте метод, вычисляющий сумму квадратов чисел от 1 до 1,000,000.
-        // Разбейте диапазон на 4 части и вычислите каждую часть в отдельной задаче
-        // (Task), затем суммируйте результаты. Сравните время выполнения с
-        // последовательной версией.
-
-        static (long, long) CaclulateTest()
-        {
-            long total_amount = 0;
-            long elepsedMilliseconds = 0;
-            return (total_amount, elepsedMilliseconds);
-        }
+        #region === CPU-bound операции (вычисления) ===
 
         static void CaclulateSynchron(out long total_amount, out long elepsedMilliseconds)
         {
-            // Вместо void можно указать возвращаемый тип (long, long)
-            // плохо или хорошо?
-
-            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-
+            var stopwatch = Stopwatch.StartNew();
             total_amount = 0;
-            // Решение №1 - без потоков 
+
             for (long i = 1; i <= 1_000_000; i++)
             {
-                total_amount += i * i;
+                total_amount += i * i; // CPU-intensive calculation
             }
 
             stopwatch.Stop();
@@ -79,138 +77,103 @@ namespace Samples
 
         static void CaclulateWithThreads(out long total_amount, out long elepsedMilliseconds)
         {
-            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+            var stopwatch = Stopwatch.StartNew();
 
-            long amount_1 = 0;
-            long amount_2 = 0;
-            long amount_3 = 0;
-            long amount_4 = 0;
+            long amount_1 = 0, amount_2 = 0, amount_3 = 0, amount_4 = 0;
 
-            total_amount = 0;
-            elepsedMilliseconds = 0;
+            Thread t1 = new Thread(() => amount_1 = FirstDivision());
+            Thread t2 = new Thread(() => amount_2 = SecondDivision());
+            Thread t3 = new Thread(() => amount_3 = ThirdDivision());
+            Thread t4 = new Thread(() => amount_4 = FourthDivision());
 
-            // Решение №1 - через потоки 
-            Thread firstDivisionThread = new Thread(() =>
-            {
-                amount_1 = FirstDivision();
-            });
-            Thread secondDivisionThread = new Thread(() =>
-            {
-                amount_2 = SecondDivision();
-            });
-            Thread thirdDivisionThread = new Thread(() =>
-            {
-                amount_3 = ThirdDivision();
-            });
-            Thread fourthDivisionThread = new Thread(() =>
-            {
-                amount_4 = FourthDivision();
-            });
+            t1.Start(); t2.Start(); t3.Start(); t4.Start();
+            t1.Join(); t2.Join(); t3.Join(); t4.Join();
 
-
-            firstDivisionThread.Start();
-            secondDivisionThread.Start();
-            thirdDivisionThread.Start();
-            fourthDivisionThread.Start();
-
-            firstDivisionThread.Join();
-            secondDivisionThread.Join();
-            thirdDivisionThread.Join();
-            fourthDivisionThread.Join();
-
-            total_amount += amount_1 + amount_2 + amount_3 + amount_4;
-           
+            total_amount = amount_1 + amount_2 + amount_3 + amount_4;
             stopwatch.Stop();
             elepsedMilliseconds = stopwatch.ElapsedMilliseconds;
         }
 
-        /// <summary>
-        /// Подсчет суммы квадратов с использованием задач (Task)
-        /// </summary>
-        /// <returns>(total_amount, elepsedMilliseconds)</returns>
-        static async Task<(long, long)> CaclulateWithTasks()
+        static async Task<(long total, long time)> CaclulateWithTasks()
         {
-            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+            var stopwatch = Stopwatch.StartNew();
 
-            long total_amount = 0;
-            long elepsedMilliseconds = 0;
+            // ПРАВИЛЬНО для CPU-bound: используем Task.Run для вычислений
+            Task<long> t1 = Task.Run(FirstDivision);
+            Task<long> t2 = Task.Run(SecondDivision);
+            Task<long> t3 = Task.Run(ThirdDivision);
+            Task<long> t4 = Task.Run(FourthDivision);
 
-            Task<long> taskFirstDivision = Task.Run(FirstDivision);
-            Task<long> taskSecondDivision = Task.Run(SecondDivision);
-            Task<long> taskThirdDivision = Task.Run(ThirdDivision);
-            Task<long> taskFourthDivision = Task.Run(FourthDivision);
+            await Task.WhenAll(t1, t2, t3, t4);
 
-            // Ожидание всех задач:
-            // Task.WaitAll(taskFirstDivision, taskSecondDivision, taskThirdDivision, taskFourthDivision); 
-            // или
-            await Task.WhenAll(taskFirstDivision, taskSecondDivision, taskThirdDivision, taskFourthDivision); // ждем завершения всех задач
-           
-            // Ожидание самой быстрой задачи:
-            // Task.WaitAny(taskFirstDivision, taskSecondDivision, taskThirdDivision, taskFourthDivision);
-
-            // Ожидание конкретной задачи:
-            // taskFirstDivision.Wait();
-            // или 
-            // await taskFirstDivision;
-
-            total_amount = taskFirstDivision.Result + taskSecondDivision.Result +
-                           taskThirdDivision.Result + taskFourthDivision.Result;
-
+            long total = t1.Result + t2.Result + t3.Result + t4.Result;
             stopwatch.Stop();
-            elepsedMilliseconds = stopwatch.ElapsedMilliseconds;
 
-            return (total_amount, elepsedMilliseconds);
-        }
-
-        static long FirstDivision()
-        {
-            long amount = 0;
-            // 1ый диапазон
-            for (long i = 1; i <= 250_000; i++)
-            {
-                amount += i * i;
-            }
-
-            return amount;
-        }
-
-        static long SecondDivision()
-        {
-            long amount = 0;
-            // 2ый диапазон
-            for (long i = 250_001; i <= 500_000; i++)
-            {
-                amount += i * i;
-            }
-
-            return amount;
-        }
-
-        static long ThirdDivision()
-        {
-            long amount = 0;
-            // 3ий диапазон
-            for (long i = 500_001; i <= 750_000; i++)
-            {
-                amount += i * i;
-            }
-
-            return amount;
-        }
-
-        static long FourthDivision()
-        {
-            long amount = 0;
-            // 4ый диапазон
-            for (long i = 750_001; i <= 1_000_000; i++)
-            {
-                amount += i * i;
-            }
-
-            return amount;
+            return (total, stopwatch.ElapsedMilliseconds);
         }
 
         #endregion
 
+        #region === I/O-bound операции (ожидание) ===
+
+        static async Task<(int total, long time)> SimulateIoOperations()
+        {
+            var stopwatch = Stopwatch.StartNew();
+
+            // ПРАВИЛЬНО для I/O-bound: используем чистый async/await
+            // без Task.Run, так как операции сами являются асинхронными
+            
+            Task<string> fileReadTask = SimulateFileReadAsync();
+            Task<string> networkRequestTask = SimulateNetworkRequestAsync();
+            Task<string> databaseQueryTask = SimulateDatabaseQueryAsync();
+
+            // Все операции работают параллельно без блокировки потоков
+            await Task.WhenAll(fileReadTask, networkRequestTask, databaseQueryTask);
+
+            stopwatch.Stop();
+            return (3, stopwatch.ElapsedMilliseconds); // 3 операции завершены
+        }
+
+        static async Task<string> SimulateFileReadAsync()
+        {
+            // Имитация чтения файла - I/O операция
+            await Task.Delay(500); // Ожидание диска
+            return "file content";
+        }
+
+        static async Task<string> SimulateNetworkRequestAsync()
+        {
+            // Имитация сетевого запроса - I/O операция  
+            await Task.Delay(800); // Ожидание сети
+            return "network response";
+        }
+
+        static async Task<string> SimulateDatabaseQueryAsync()
+        {
+            // Имитация запроса к БД - I/O операция
+            await Task.Delay(600); // Ожидание БД
+            return "db result";
+        }
+
+        #endregion
+
+        #region === Вспомогательные методы для вычислений ===
+
+        static long FirstDivision() => CalculateRange(1, 250_000);
+        static long SecondDivision() => CalculateRange(250_001, 500_000);
+        static long ThirdDivision() => CalculateRange(500_001, 750_000);
+        static long FourthDivision() => CalculateRange(750_001, 1_000_000);
+
+        static long CalculateRange(long start, long end)
+        {
+            long amount = 0;
+            for (long i = start; i <= end; i++)
+            {
+                amount += i * i;
+            }
+            return amount;
+        }
+
+        #endregion
     }
 }
