@@ -37,7 +37,7 @@
 - https://github.com/VladimirRepp/CS---CreateProcess
 - https://github.com/VladimirRepp/CS---SimpleProcess
 
-### [Модуль 3. Многопоточность и асинхронность](./Module%203%20-%20Threading%20and%20Asynchrony)
+### [Модуль 3. Многопоточность и асинхронность](./Module%203%20-%20Multithreading%20and%20asynchrony)
 
 **Поток (Thread)** — наименьшая единица выполнения внутри процесса.
 
@@ -56,7 +56,7 @@
 - https://github.com/VladimirRepp/CS---AsynkTaskParallel
 - https://github.com/VladimirRepp/CS---PoolThreads
 
-### [Модуль 4. Синхронизация](./Module%204%20-%20Synchronization)
+### [Модуль 4. Синхронизация](./Module%204%20-%20Syncing)
 
 **Проблемы многопоточности:**
 - **Race Condition** — состояние гонки
@@ -78,7 +78,7 @@
 **Дополнительные материалы:**
 - https://github.com/VladimirRepp/CS---SynchronizationMethodsUsingThread
 
-### [Модуль 5. Параллельное программирование](./Module%205%20-%20Parallel%20Programming)
+### [Модуль 5. Параллельное программирование](./Module%205%20-%20Parallel%20programming)
 
 **Параллельное программирование** — использование нескольких ядер CPU для одновременного выполнения задач.
 
@@ -99,7 +99,7 @@
 **Дополнительные материалы:**
 - https://github.com/VladimirRepp/CS---AsynkTaskParallel
 
-### [Модуль 6. Динамически подключаемые библиотеки](./Module%206%20-%20Dynamic%20Libraries)
+### [Модуль 6. Динамически подключаемые библиотеки](./Module%206%20-%20Dynamically%20linked%20libraries%20(dll))
 
 **Динамическая загрузка** — загрузка сборок во время выполнения.
 
