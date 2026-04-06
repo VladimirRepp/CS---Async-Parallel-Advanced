@@ -14,21 +14,17 @@ class Program
             "https://metanit.com/sharp/tutorial/"
         };
 
+        Console.WriteLine("Начало параллельной загрузки...");
+        var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+        string[] pages = null;
+        
         try
         {
-            Console.WriteLine("Начало параллельной загрузки...");
-            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-
             // Запускаем все задачи одновременно
             Task<string>[] downloadTasks = urls.Select(url => DownloadStringAsync(url)).ToArray();
 
             // Ожидаем завершения ВСЕХ задач
-            string[] pages = await Task.WhenAll(downloadTasks);
-
-            stopwatch.Stop();
-            Console.WriteLine($"Все страницы загружены за {stopwatch.ElapsedMilliseconds} мс.");
-            Console.WriteLine($"Размеры: {string.Join(", ", pages.Select(p => p.Length))} символов.");
-
+            pages = await Task.WhenAll(downloadTasks);
         }
         catch (Exception ex)
         {
@@ -37,6 +33,13 @@ class Program
 
             Console.WriteLine($"(!!!) Исключение: {ex.Message}");
         }
+
+        
+        stopwatch.Stop();
+        Console.WriteLine($"Все страницы загружены за {stopwatch.ElapsedMilliseconds} мс.");
+
+        if(pages != null)
+            Console.WriteLine($"Размеры: {string.Join(", ", pages.Select(p => p.Length))} символов.");
     }
 
     static async Task<string> DownloadStringAsync(string url)
