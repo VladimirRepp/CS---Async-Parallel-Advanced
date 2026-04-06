@@ -16,7 +16,7 @@ class Program
 
         Console.WriteLine("Начало параллельной загрузки...");
         var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-        string[] pages = null;
+        string[] pages = new string[urls.lenght];
         
         try
         {
@@ -38,8 +38,7 @@ class Program
         stopwatch.Stop();
         Console.WriteLine($"Все страницы загружены за {stopwatch.ElapsedMilliseconds} мс.");
 
-        if(pages != null)
-            Console.WriteLine($"Размеры: {string.Join(", ", pages.Select(p => p.Length))} символов.");
+        Console.WriteLine($"Размеры: {string.Join(", ", pages.Select(p => p.Length))} символов.");
     }
 
     static async Task<string> DownloadStringAsync(string url)
