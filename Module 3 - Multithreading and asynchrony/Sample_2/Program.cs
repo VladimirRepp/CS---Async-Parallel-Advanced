@@ -45,7 +45,7 @@ class Program
     {
         using var client = new HttpClient();
         Console.WriteLine($"Начало загрузки: {url}");
-        string content = await client.GetStringAsync(url);
+        string content = await client.GetStringAsync(url); // i/o bounc
         Console.WriteLine($"Завершена загрузка: {url}");
         return content;
     }
