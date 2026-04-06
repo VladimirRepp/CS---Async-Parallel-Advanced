@@ -16,7 +16,7 @@ class Program
 
         Console.WriteLine("Начало параллельной загрузки...");
         var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-        string[] pages = new string[urls.lenght];
+        string[] pages = new string[urls.Lenght];
         
         try
         {
