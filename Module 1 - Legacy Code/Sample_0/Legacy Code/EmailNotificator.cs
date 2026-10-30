@@ -3,9 +3,9 @@ namespace Sample_0.Legacy_Code
 {
     internal class EmailNotificator
     {
-        internal void SendEmail(string customerEmail, string v)
+        internal void SendEmail(string customerEmail, string message)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Message sended!");
         }
     }
 }
