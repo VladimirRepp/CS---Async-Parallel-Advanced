@@ -5,7 +5,7 @@
         public bool Validate(Order order)
         {
             // do something...
-            return true;
+            return order != null;
         }
     }
 }
