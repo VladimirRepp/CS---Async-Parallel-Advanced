@@ -5,7 +5,7 @@ namespace Sample_0.Legacy_Code
     {
         internal void Save(Order order)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Order seved!");
         }
     }
 }
