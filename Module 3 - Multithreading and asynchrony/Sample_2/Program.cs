@@ -14,7 +14,7 @@ class Program
             "https://metanit.com/sharp/tutorial/"
         };
 
-        Console.WriteLine("Начало параллельной загрузки...");
+        Console.WriteLine("Начало многопоточной загрузки...");
         var stopwatch = System.Diagnostics.Stopwatch.StartNew();
         string[] pages = new string[urls.Lenght];
         
