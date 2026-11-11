@@ -13,15 +13,21 @@ class Program
         numbersThread.Start();
 
         // Работа в основном потоке
+        PrintChar();
+
+        numbersThread.Join(); // Ждем завершения потока с числами
+        Console.WriteLine("Все потоки завершили работу.");
+    }
+
+    static void PrintChar()
+    {
         for (char c = 'A'; c <= 'E'; c++)
         {
             Console.WriteLine($"Поток [Main]: {c}");
             Thread.Sleep(800); // Небольшая задержка для наглядности
         }
-
-        numbersThread.Join(); // Ждем завершения потока с числами
-        Console.WriteLine("Все потоки завершили работу.");
     }
+    
     static void PrintNumbers()
     {
         for (int i = 1; i <= 5; i++)
