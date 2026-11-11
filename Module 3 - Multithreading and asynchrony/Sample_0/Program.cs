@@ -15,6 +15,7 @@ class Program
         // Работа в основном потоке
         PrintChar();
 
+        // Попробуй закомментировать. Что получится?
         numbersThread.Join(); // Ждем завершения потока с числами
         Console.WriteLine("Все потоки завершили работу.");
          Console.ReadLine();
